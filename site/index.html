@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Street Lamp</title>
+    <link rel="stylesheet" href="res.css">
+
+    <!-- Favicon Link -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  </head>
+  <body>
+    <input type="checkbox" name="btn" id="btn">
+    <div class="content">
+      <div class="buildings">
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+        <div class="window"></div>
+      </div>
+      <div class="ground">
+        <div class="sewer"></div>
+      </div>
+      <div class="streetlamp">
+        <div class="base"></div>
+        <div class="basetop"></div>
+        <div class="pole"></div>
+        <div class="poletop"></div>
+        <div class="head">
+          <label for="btn"></label>
+          <div class="top"></div>
+          <div class="glass"></div>
+          <div class="bot"></div>
+        </div>
+        <div class="light"></div>
+        <div class="ground-light"></div>
+      </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="flickerSound" src="flicker-sound.mp3" loop></audio>
+
+    <!-- JavaScript -->
+    <script>
+      const flickerSound = document.getElementById('flickerSound');
+      const btn = document.getElementById('btn');
+
+      // Play or pause the sound based on the checkbox state
+      btn.addEventListener('click', () => {
+        if (btn.checked) {
+          flickerSound.play(); // Play sound when lamp is turned on
+        } else {
+          flickerSound.pause(); // Stop sound when lamp is turned off
+          flickerSound.currentTime = 0; // Reset the sound to the start
+        }
+      });
+    </script>
+  </body>
+</html>
